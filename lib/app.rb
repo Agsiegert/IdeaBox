@@ -1,12 +1,14 @@
 require 'idea_box'
 
 class IdeaBoxApp < Sinatra::Base
-  set :method_override, true
-  set :root, 'lib/app'
-
   configure :development do
     register Sinatra::Reloader
+    also_reload './idea_box/idea_store'
+    also_reload './idea_box/idea'
   end
+
+  set :method_override, true
+  set :root, 'lib/app'
 
   not_found do
     erb :error
@@ -32,7 +34,10 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   post '/' do
-    IdeaStore.create(params[:idea])
+    File.open("db/uploads/" + params['uploads'][:filename], "w") do |f|
+      f.write(params['uploads'][:tempfile].read)
+    end
+    IdeaStore.create(params[:idea].merge('uploads' => params['uploads'][:filename]))
     redirect '/'
   end
 

@@ -1,4 +1,4 @@
-<form action='/<%= idea.id %>' method='POST'>
+<form action='/<%= idea.id %>' method='POST' enctype='multipart/form-data'>
   <p>
     <% if idea.id %>
       Edit your Idea:
@@ -11,6 +11,12 @@
   <% end %>
   <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>
   <textarea name='idea[description]'><%= idea.description %></textarea><br/>
-  <input type='submit'/>
+<!-- Uploads -->
+  <p> Upload an Idea </p>
+  <input type="file" accept="audio/*|video/*|image/*" name="uploads" />
+<br>
+  <input type='submit' value='Submit Idea'/>
+
 </form>
+
 

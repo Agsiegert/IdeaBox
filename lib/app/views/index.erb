@@ -8,8 +8,9 @@
     <ul>
       <% ideas.each do |idea| %>
         <li>
-          <%= idea.title %><br/>
-          <%= idea.description %><br>
+          Title: <%= idea.title %><br>
+          Description: <%= idea.description %><br>
+          Files: <a href="../db/uploads/<%= idea.uploads %>"><%= idea.uploads %><br>
           <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
             <input type='submit' value="+"/>
           </form>

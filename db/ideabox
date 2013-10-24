@@ -1,10 +1,17 @@
 ---
 ideas:
-- title: Music
-  description: Find
-- title: Food
-  description: Get
-  rank: 4
 - title: Study
   description: Better
-  rank: 2
+  rank: 1
+  uploads: 
+  tag: 0
+- title: New
+  description: Idea
+- title: Newer
+  description: Idea
+- title: Lease
+  description: Ammendment
+  uploads: Amendment.pdf
+- title: reading
+  description: reread book
+  uploads: Learn to Program, 2nd Edition.pdf
